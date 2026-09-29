@@ -1,0 +1,32 @@
+:root{--bg:#eef1f4;--card:#fff;--ink:#1c2530;--muted:#66717f;--accent:#1f5f8b;--line:#d5dbe2;--danger:#b3372f}
+@media(prefers-color-scheme:dark){:root{--bg:#141a21;--card:#1e2630;--ink:#e6ebf0;--muted:#94a0ae;--accent:#5aa3d6;--line:#303a46;--danger:#ef8a82}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2{margin:0;font-family:Georgia,"Times New Roman",serif}
+input,select,button{font:inherit;color:inherit}
+input,select{padding:.6rem .75rem;border:1px solid var(--line);border-radius:6px;background:var(--card);width:100%}
+button{padding:.6rem 1rem;border:0;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer}
+button.link{background:none;color:var(--accent);padding:.3rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.error{color:var(--danger);min-height:1.5em;margin:0}
+#auth{min-height:100vh;display:grid;place-items:center;padding:1rem}
+#authForm{width:100%;max-width:360px;display:grid;gap:.75rem;background:var(--card);padding:2rem;border-radius:10px;border:1px solid var(--line)}
+#authForm p{margin:0;color:var(--muted)}
+#authForm .error{color:var(--danger)}
+#app{max-width:1100px;margin:0 auto;padding:1rem}
+header{display:flex;align-items:center;gap:1rem;padding:.5rem 0 1rem}
+header span{margin-left:auto;color:var(--muted)}
+#taskForm{display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:.5rem;margin-bottom:1.25rem}
+.board{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:start}
+.board>section{background:color-mix(in srgb,var(--card) 55%,transparent);border:1px solid var(--line);border-radius:10px;padding:.75rem}
+.board h2{font-size:1.1rem;margin-bottom:.75rem}
+.list{display:grid;gap:.6rem;min-height:2rem}
+.list:empty::after{content:"Nothing here yet.";color:var(--muted)}
+.task{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem;display:grid;gap:.4rem}
+.task strong{overflow-wrap:anywhere}
+.task small{color:var(--muted)}
+.task .row{display:flex;gap:.4rem}
+.task select{padding:.3rem}
+.task .del{background:none;color:var(--danger);padding:.3rem .5rem}
+.task .edit{background:none;color:var(--accent);padding:.3rem .5rem}
+@media(max-width:800px){#taskForm{grid-template-columns:1fr}.board{grid-template-columns:1fr}}

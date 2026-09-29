@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taskboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="auth">
+  <form id="authForm">
+    <h1>Taskboard</h1>
+    <p id="authHint">Log in to see your tasks.</p>
+    <input id="name" placeholder="Your name" autocomplete="name" hidden>
+    <input id="email" type="email" placeholder="Email" autocomplete="email" required>
+    <input id="password" type="password" placeholder="Password (6+ characters)" autocomplete="current-password" required>
+    <p id="authError" class="error" role="alert"></p>
+    <button type="submit" id="authSubmit">Log in</button>
+    <button type="button" id="authToggle" class="link">New here? Create an account</button>
+  </form>
+</section>
+
+<main id="app" hidden>
+  <header>
+    <h1>Taskboard</h1>
+    <span id="hello"></span>
+    <button id="logout" class="link">Log out</button>
+  </header>
+  <form id="taskForm">
+    <input id="title" placeholder="What needs doing?" required>
+    <input id="desc" placeholder="Details (optional)">
+    <input id="due" type="date" aria-label="Due date">
+    <button type="submit">Add task</button>
+  </form>
+  <div class="board">
+    <section data-status="todo"><h2>To do</h2><div class="list"></div></section>
+    <section data-status="doing"><h2>In progress</h2><div class="list"></div></section>
+    <section data-status="done"><h2>Done</h2><div class="list"></div></section>
+  </div>
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
